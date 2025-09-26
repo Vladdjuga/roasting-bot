@@ -36,3 +36,5 @@ def call_ai_client(payload):
     logger.info(f"AI client returned: {result}")
     # result[0] is the models reasoning, result[1] is the text/json response
     return result[1] # return only the text part of the response
+
+
