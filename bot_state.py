@@ -5,7 +5,7 @@ from messages import MessageList
 logger = logging.getLogger(__name__)
 
 # How many messages to keep in chat history
-MAX_HISTORY = 10
+MAX_HISTORY = 5
 
 def ensure_chat_state(context: CallbackContext) -> None:
     """Ensure chat_data has required structures for the bot to operate."""
