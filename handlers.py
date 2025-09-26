@@ -56,9 +56,11 @@ async def trigger_ai_if_needed(update: Update, context: CallbackContext):
         # Prepare payload first
         payload = build_payload(context.chat_data["messages"])
         logger.info("Message appended to chat history: %s", payload)
-        # Keep only last MAX_HISTORY messages
-        while len(msgs) > MAX_HISTORY:
-            msgs.pop(0)
+
+        # Clear old messages to keep history manageable
+        context.chat_data["messages"].messages = []
+
+        # Mark that we're awaiting an AI response
         context.chat_data["awaiting_ai"] = True
 
         chat_id = update.effective_chat.id
@@ -90,6 +92,7 @@ async def trigger_ai_if_needed(update: Update, context: CallbackContext):
             reply_to_message_id=message_response_obj.response_to_id,
             text=message_response_obj.text
         )
+
 
 
 async def on_text(update: Update, context: CallbackContext):
