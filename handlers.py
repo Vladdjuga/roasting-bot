@@ -87,6 +87,14 @@ async def trigger_ai_if_needed(update: Update, context: CallbackContext):
             await context.bot.send_message(chat_id=chat_id, text="Couldn't parse AI response. Please try again.")
             return
 
+        # Add AI response to history
+        ai_msg = Message(
+            text=message_response_obj.text,
+            message_id=message_response_obj.response_to_id,
+            timestamp=update.message.date
+        )
+        context.chat_data["messages"].messages.append(ai_msg)
+
         await context.bot.send_message(
             chat_id=chat_id,
             reply_to_message_id=message_response_obj.response_to_id,
