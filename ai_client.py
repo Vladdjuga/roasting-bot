@@ -26,7 +26,7 @@ def call_ai_client(payload):
 
     result = client.predict(
         messages_batch=payload,
-        maximum_tokens=120,
+        maximum_tokens=1024,
         temp=0.6,
         nucleus=0.95,
         api_name="/respond_with_reasoning"
