@@ -1,9 +1,19 @@
 # Telegram Roast Bot
 
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](#requirements)
+[![License: MIT](https://img.shields.io/badge/License-MIT-97CA00.svg)](LICENSE)
+[![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)](#containerization-docker)
+[![Hugging Face Space](https://img.shields.io/badge/Spaces-RoastingBot--Public-yellow?logo=huggingface)](https://huggingface.co/spaces/vladdjuga/RoastingBot-Public/tree/main)
+
 A Telegram bot that collects recent chat messages, sends them to an AI model, and replies with a roast. The bot:
 - Keeps a short sliding window of recent messages per chat
 - Avoids appending while waiting for the AI response (per-chat `awaiting_ai` flag)
 - Calls a Gradio AI endpoint in a background thread to keep the bot responsive
+
+## Hugging Face Space (LLM endpoint)
+
+This bot uses the following Hugging Face Space via the Gradio Client:
+- [RoastingBot-Public (Hugging Face Space)](https://huggingface.co/spaces/vladdjuga/RoastingBot-Public/tree/main)
 
 ## Project structure
 

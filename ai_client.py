@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 api_key=os.environ.get('HF_READ_TOKEN')
 
-client = Client("vladdjuga/PrikolistRoastBot",hf_token=api_key)
+client = Client("vladdjuga/RoastingBot-Public",hf_token=api_key)
 
 # To prevent concurrent calls to the AI client
 is_calling=False
